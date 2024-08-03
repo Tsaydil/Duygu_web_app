@@ -29,7 +29,6 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'about', component: AboutComponent }
     ]),

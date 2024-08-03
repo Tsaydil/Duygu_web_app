@@ -10,12 +10,28 @@
 
       <div class="flex flex-wrap items-center mt-32">
 
-        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+        <div class="w-full  px-4 mr-auto ml-auto">
 
-          <h1 class="text-6xl mb-2 font-semibold leading-normal">
+          <h1 class="text-6xl mb-2 font-semibold leading-normal text-center">
             Hakkımda
           </h1>
-          <p
+
+          <p *ngFor="let mainContent of mainContents" class="text-lg font-light leading-relaxed text-justify mt-4 mb-4 text-blueGray-600" style="text-indent: 3rem">{{mainContent}}</p>
+          <br>
+
+          <h2 class="font-bold text-center">ALDIĞI EĞİTİM VE SERTİFİKALARDAN BAZILARI</h2>
+          <ul>
+            <li *ngFor="let trainingContent of trainingContents" class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{trainingContent}}
+            </li>
+          </ul>
+<!--          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{trainingContents}}</p>-->
+          <br>
+
+          <h2 class="font-bold text-center">AKADEMİK ÇALIŞMALAR</h2>
+          <br>
+          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{researchContent}}</p>
+
+          <!--<p
             class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600"
           >
             Don't let your uses guess by attaching tooltips and popoves to any
@@ -27,7 +43,7 @@
             The kit comes with three pre-built pages to help you get started
             faster. You can change the text and images and you're good to go.
             Just make sure you enable them first via JavaScript.
-          </p>
+          </p>-->
 
         </div>
 

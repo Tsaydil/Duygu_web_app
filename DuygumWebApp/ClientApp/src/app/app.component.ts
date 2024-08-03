@@ -6,7 +6,7 @@ import {initFlowbite} from "flowbite";
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit{
-  title = 'Duygu Aydil';
+  title = 'Duygu Koyuncu Aydil';
 
   ngOnInit() {
     initFlowbite();

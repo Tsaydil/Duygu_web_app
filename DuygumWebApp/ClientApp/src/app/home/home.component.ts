@@ -1,5 +1,7 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
+import {ReadTextFileService} from "../services/read-text-file.service";
+//import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-home',
@@ -9,8 +11,10 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit, AfterViewInit {
   paddingTop: string;
   defaultPaddingTop: number = 20;
-
   currentItem: number = 0;
+  aboutContent: string = '';
+
+  @ViewChild('homeVideo') homeVideo!: ElementRef<HTMLVideoElement>;
 
   @ViewChild('textElement') textElement!: ElementRef;
   @ViewChild('captionElement') captionElement!: ElementRef;
@@ -34,36 +38,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private cdRef: ChangeDetectorRef,
+    private readTextFileService: ReadTextFileService,
+    //private resp: BreakpointObserver
+  ) {
     this.paddingTop = '0px';
-  }
-
-  ngOnInit() {
-    this.router.events.subscribe((event) => {
-      /*if (!(event instanceof NavigationEnd)) {
-        return;
-      }*/
-      window.scrollTo(0, 0)
-    });
-
-
-
-  }
-
-  ngAfterViewInit() {
-    const nav = document.getElementsByTagName('nav')[0];
-    const navbarHeight = nav.clientHeight;
-    this.paddingTop = `${navbarHeight}px`;
-
-    this.textElement.nativeElement.textContent = this.texts[this.currentIndex];
-    this.textElement.nativeElement.classList.add('fade-in');
-
-    this.captionElement.nativeElement.textContent = this.captions[this.currentIndex];
-    this.captionElement.nativeElement.classList.add('fade-in');
-
-    this.cycleTexts();
-
-
   }
 
   cycleTexts() {
@@ -94,22 +75,46 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.captionElement.nativeElement.classList.add('fade-in');
   }
 
-
-  title = 'Duygu Aydil';
-
-  imageAddress = "https://images.unsplash.com/photo-1546587348-d12660c30c50?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0dXJhbHxlbnwwfHwwfHx8MA%3D%3D";
-
-
-  /*setHeightoffirstDiv() {
-    document.addEventListener('DOMContentLoaded', function() {
-      var navbar = document.querySelector('nav');
-      var firstDiv = document.querySelector('main > div:first-child');
-
-      var navbarHeight = navbar.offsetHeight;
-
-      firstDiv.style.marginTop = navbarHeight + 'px';
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      /*if (!(event instanceof NavigationEnd)) {
+        return;
+      }*/
+      window.scrollTo(0, 0)
     });
 
-  };*/
+    this.readTextFileService.readFileContents('assets/texts/about/main_short.txt').then((data) => {
+      this.aboutContent = data;
+    });
+
+
+    /*this.resp.observe([Breakpoints.Handset, Breakpoints.HandsetPortrait]).subscribe(result => {
+      const res = result;
+      console.log("res: ", res);
+    });*/
+
+  }
+
+  ngAfterViewInit() {
+    const nav = document.getElementsByTagName('nav')[0];
+    const navbarHeight = nav.clientHeight;
+    this.paddingTop = `${navbarHeight}px`;
+
+    this.textElement.nativeElement.textContent = this.texts[this.currentIndex];
+    this.textElement.nativeElement.classList.add('fade-in');
+
+    this.captionElement.nativeElement.textContent = this.captions[this.currentIndex];
+    this.captionElement.nativeElement.classList.add('fade-in');
+
+    this.cycleTexts();
+
+    this.homeVideo.nativeElement.muted = true;
+    this.homeVideo.nativeElement.play();
+
+    this.cdRef.detectChanges();
+
+  }
+
+
 
 }

@@ -1,16 +1,32 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {ReadTextFileService} from "../services/read-text-file.service";
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements AfterViewInit{
+export class AboutComponent implements AfterViewInit, OnInit{
   paddingTop: string;
   defaultPaddingTop: number = 20;
+  mainContents: string[] = [];
+  trainingContents: string[] = [];
+  researchContent: string = '';
 
-  constructor() {
+  constructor(private readTextFileService: ReadTextFileService) {
     this.paddingTop = '0px';
+  }
+
+  ngOnInit() {
+    this.readTextFileService.readFileContents('assets/texts/about/main.txt').then((data) => {
+      this.mainContents = data.split('\n');
+    });
+    this.readTextFileService.readFileContents('assets/texts/about/trainings.txt').then((data) => {
+      this.trainingContents = data.split('\n');
+    });
+    this.readTextFileService.readFileContents('assets/texts/about/researches.txt').then((data) => {
+      this.researchContent = data;
+    });
   }
 
   ngAfterViewInit() {
