@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import {NavbarDropdownComponent} from "./nav-menu/navbar-dropdown/navbar-dropdown.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
+import {PostsComponent} from "./posts/posts.component";
+import {StudyAreaComponent} from "./study-area/study-area.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AboutComponent } from './about/about.component';
     CounterComponent,
     FetchDataComponent,
     NavbarDropdownComponent,
-    AboutComponent
+    AboutComponent,
+    PostsComponent,
+    StudyAreaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,7 +34,9 @@ import { AboutComponent } from './about/about.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'about', component: AboutComponent }
+      { path: 'about', component: AboutComponent },
+      { path: 'posts', component: PostsComponent },
+      { path: 'study-area', component: StudyAreaComponent }
     ]),
     BrowserAnimationsModule
   ],
