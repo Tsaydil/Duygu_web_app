@@ -78,8 +78,15 @@
             </h3>
           </div>
           <br>
-          <li *ngFor="let research of researchContent"
-              class="text-lg font-light leading-relaxed mb-2 text-blueGray-600">{{research}}</li>
+          <li *ngFor="let research of researchContent; let i = index"
+              class="text-lg font-light leading-relaxed mb-2 text-blueGray-600">
+            <ng-container *ngIf="i == 0">
+              <a href="https://journals.sagepub.com/doi/10.1177/13591045221148075" target="_blank" class="text-blue-500">{{research}}</a>
+            </ng-container>
+            <ng-container *ngIf="i != 0">
+              {{research}}
+            </ng-container>
+          </li>
 
         </div>
 

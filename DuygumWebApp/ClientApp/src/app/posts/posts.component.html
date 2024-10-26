@@ -1,5 +1,167 @@
+<!--
+<div class="bg-blueGray-200">
+  <section class="pb-20">
+    <div class="container mx-auto px-4">
+
+      <div class="flex flex-wrap items-center" >
+
+        <div class="w-full mr-auto ml-auto posts_content_div">
+
+          <div class="w-100 mr-auto ml-auto flex" style="width: 100%; margin-bottom: 5rem">
+            <div class="flex flex-col items-center" style="width: 20%; margin-right: 6rem">
+              <img
+                alt="..."
+                src="assets/images/posts/image_1.png"
+                class="rounded"
+                style="background: #cdcedd; border: 3px solid #cdcedd;"
+              />
+            </div>
+            <div class="w-50 justify-center text-center items-start">
+              <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+                Duygular
+              </h3>
+              <p class="text-justify">
+                Bazen seanslarda danışanlarımın ‘neden böyle hissediyorum, bunu hissetmek istemiyorum, bir an önce geçsin istiyorum’ gibi sözleri oluyor..
+                bunu bazen arkadaşlarımdan, çevremden de duyuyorum, ne yalan söyleyim bazen ben de kendimi böyle düşünürken yakalıyorum..
+              </p>
+            </div>
+          </div>
+
+          <div class="w-100 mr-auto ml-auto flex" style="width: 100%;">
+            <div class="relative flex flex-col items-center" style="width: 20%; margin-right: 6rem">
+              <img
+                alt="..."
+                src="assets/images/posts/image_1.png"
+                class="rounded"
+                style=" object-fit: cover; background: #cdcedd; border: 3px solid #cdcedd;"
+              />
+            </div>
+            <div class="w-50 justify-center text-center items-start">
+              <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+                Duygular
+              </h3>
+              <p class="text-justify">
+                Bazen seanslarda danışanlarımın ‘neden böyle hissediyorum, bunu hissetmek istemiyorum, bir an önce geçsin istiyorum’ gibi sözleri oluyor..
+                bunu bazen arkadaşlarımdan, çevremden de duyuyorum, ne yalan söyleyim bazen ben de kendimi böyle düşünürken yakalıyorum..
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>
+-->
+
+<div class="bg-blueGray-200">
+  <div class="blog-container">
+
+    <div *ngIf="mobileActive" [ngClass]="'mobile-posts-container'">
+      <article
+        *ngFor="let content of contents; let i = index"
+        [ngClass]="{posts_content_div: i == 0}"
+        class="blog-post"
+        style="width: 80%"
+        >
+        <img
+          alt="..."
+          src="assets/images/posts/image_{{i+1}}.png"
+          class="blog-image"
+          style="width: 100%; height: auto; object-fit: cover;"
+        />
+        <div class="blog-content" style="text-align: center">
+          <h2 class="blog-title">{{headers[i]}}</h2>
+          <p class="blog-excerpt"
+             style="margin-right: 0; margin-bottom: 0.5rem; hyphens: auto ">
+            {{content}}
+          </p>
+          <a [routerLink]="['/post']" [queryParams]="{no: i+1}" class="category">Devamı...</a>
+        </div>
+      </article>
+    </div>
 
 
-<div style="padding-top: 10rem">
+    <div *ngIf="!mobileActive">
+      <article *ngFor="let content of contents; let i = index" [ngClass]="{posts_content_div: i == 0}" class="blog-post">
+        <img
+          alt="..."
+          src="assets/images/posts/image_{{i+1}}.png"
+          class="blog-image"
+          style="width: 20%; height: auto; object-fit: cover;"
+        />
+        <div class="blog-content">
+          <h2 class="blog-title">{{headers[i]}}</h2>
+          <p class="blog-excerpt">{{content}}</p>
+          <a [routerLink]="['/post']" [queryParams]="{no: i+1}" class="category">Devamı...</a>
+        </div>
+      </article>
+    </div>
 
+
+
+
+    <!--<article class="blog-post posts_content_div">
+      <img
+        alt="..."
+        src="assets/images/posts/image_1.png"
+        class="blog-image"
+        style="width: 20%; height: auto; object-fit: cover;"
+      />
+      <div class="blog-content">
+        <h2 class="blog-title">Terapi Sürecinde Neler Olur?</h2>
+        <p class="blog-excerpt">{{terapiContents}}</p>
+        <a [routerLink]="['/post']" [queryParams]="{no: '1'}" class="category">Devamı...</a>
+      </div>
+    </article>
+
+    <article class="blog-post">
+      <img
+        alt="..."
+        src="assets/images/posts/image_2.png"
+        class="blog-image"
+        style="width: 20%; height: auto; object-fit: cover;"
+      />
+      <div class="blog-content">
+        <h2 class="blog-title">Terapide Ne Amaçlanır?</h2>
+        <p class="blog-excerpt">{{terapiAmacContents}}</p>
+        <a [routerLink]="['/post']" [queryParams]="{no: '2'}" class="category">Devamı...</a>
+      </div>
+    </article>
+
+    <article class="blog-post">
+      <img
+        alt="..."
+        src="assets/images/posts/image_3.png"
+        class="blog-image"
+        style="width: 20%; height: auto; object-fit: cover;"
+      />
+      <div class="blog-content">
+        <h2 class="blog-title">Terapide Konuşmak Ne İşe Yarar?</h2>
+        <p class="blog-excerpt">{{terapiYararContents}}</p>
+        <a [routerLink]="['/post']" [queryParams]="{no: '3'}" class="category">Devamı...</a>
+      </div>
+    </article>
+
+    <article class="blog-post">
+      <img
+        alt="..."
+        src="assets/images/posts/image_4.png"
+        class="blog-image"
+        style="width: 20%; height: auto; object-fit: cover;"
+      />
+      <div class="blog-content">
+        <h2 class="blog-title">Duygular</h2>
+        <p class="blog-excerpt">{{duygularContents}}</p>
+        <a [routerLink]="['/post']" [queryParams]="{no: '4'}" class="category">Devamı...</a>
+      </div>
+    </article>
+-->
+
+
+    <!-- Additional blog posts can be added by copying the article structure -->
+  </div>
 </div>

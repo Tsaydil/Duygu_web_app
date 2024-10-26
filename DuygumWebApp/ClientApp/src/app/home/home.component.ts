@@ -118,16 +118,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.captionElement.nativeElement.textContent = this.captionsContents[0];
     });
 
-    this.readTextFileService.readFileContents('assets/texts/home/yetiskin.txt').then((data) => {
+    this.readTextFileService.readFileContents('assets/texts/home/short/yetiskin_short.txt').then((data) => {
       this.yetiskinContents = data;
     });
-    this.readTextFileService.readFileContents('assets/texts/home/ergen.txt').then((data) => {
+    this.readTextFileService.readFileContents('assets/texts/home/short/ergen_short.txt').then((data) => {
       this.ergenContents = data;
     });
-    this.readTextFileService.readFileContents('assets/texts/home/cift.txt').then((data) => {
+    this.readTextFileService.readFileContents('assets/texts/home/short/cift_short.txt').then((data) => {
       this.ciftContents = data;
     });
-    this.readTextFileService.readFileContents('assets/texts/home/online.txt').then((data) => {
+    this.readTextFileService.readFileContents('assets/texts/home/short/online_short.txt').then((data) => {
       this.onlineContents = data;
     });
 

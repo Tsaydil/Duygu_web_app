@@ -98,13 +98,17 @@
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
                 style="background-color: #c4b092"
               >
                 <i class="fa-solid fa-person" style="font-size: xx-large"></i>
               </div>
               <h6 class="text-xl font-semibold">Bireysel Psikoterapi</h6>
-              <p class="text-lg font-light leading-relaxed text-justify mt-4 mb-4 text-blueGray-600" style="text-indent: 3rem">{{yetiskinContents}}</p>
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" >{{yetiskinContents}}</p>
+              <a [routerLink]="['study-area']" fragment="yetiskin" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="text-lg font-light leading-relaxed text-justify mt-4 mb-4 text-blueGray-600" style="text-indent: 3rem">{{yetiskinContents}}</p>-->
               <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
@@ -119,16 +123,20 @@
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
                 style="background-color: #252f7e"
               >
                 <i class="fa-solid fa-child-reaching" style="font-size: x-large"></i>
               </div>
               <h6 class="text-xl font-semibold">Ergen Terapisi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" style=" hyphens: auto" >{{ergenContents}}</p>
+              <a [routerLink]="['study-area']" fragment="ergen" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
@@ -139,16 +147,20 @@
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
                 style="background-color: #c4b092"
               >
                 <i class="fa-solid fa-user-group"></i>
               </div>
               <h6 class="text-xl font-semibold">Aile ve Çift Terapisi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" style=" hyphens: auto" >{{ciftContents}}</p>
+              <a [routerLink]="['study-area']" fragment="cift" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
@@ -159,16 +171,20 @@
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
                 style="background-color: #252f7e"
               >
                 <i class="fa-solid fa-laptop" style="font-size:large"></i>
               </div>
               <h6 class="text-xl font-semibold">Online Terapi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" >{{onlineContents}}</p>
+              <a [routerLink]="['study-area']" fragment="online" routerLinkActive="active-link" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>

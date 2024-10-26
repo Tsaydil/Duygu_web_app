@@ -1,1 +1,89 @@
-<p>study-area works!</p>
+<div class="bg-blueGray-200">
+  <section class="pb-20 ">
+    <div class="container mx-auto px-4">
+
+      <div class="flex flex-wrap items-center">
+
+        <div class="w-full px-6 mr-auto ml-auto study-area_content_div">
+
+
+
+          <div [ngClass]="{'flex-justify-center': true, 'mobile-logo': mobileActive, 'desktop-logo': !mobileActive}">
+            <img
+              src="./assets/images/SaydamZemindeOrijinal.png"
+              alt="DuyguAydilLogo"
+              class="md:w-6/12"
+            >
+          </div>
+
+
+          <div  #yetiskin [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
+            <i class="fa-solid fa-person" [ngClass]="{'mobile-icon': mobileActive, 'desktop-icon': !mobileActive}"></i>
+            <h3 class="font-semibold leading-normal"
+                [ngClass]="{'mobile-header': mobileActive, 'desktop-header': !mobileActive}"
+                style="color: #252f7e">
+              Bireysel Psikoterapi
+            </h3>
+          </div>
+          <p [ngClass]="{'mobile-text': mobileActive, 'desktop-text': !mobileActive}"
+             style=" hyphens: auto; margin-bottom: 5rem;" >
+            {{yetiskinContents}}
+          </p>
+
+          <div #ergen [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
+            <i class="fa-solid fa-child-reaching" [ngClass]="{'mobile-icon': mobileActive, 'desktop-icon': !mobileActive}"></i>
+            <h3 class="font-semibold leading-normal"
+                [ngClass]="{'mobile-header': mobileActive, 'desktop-header': !mobileActive}"
+                style="color: #252f7e">
+              Ergen Terapisi
+            </h3>
+          </div>
+          <p [ngClass]="{'mobile-text': mobileActive, 'desktop-text': !mobileActive}"
+             style=" hyphens: auto; margin-bottom: 5rem;" >
+            {{ergenContents}}
+          </p>
+
+          <div #cift [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
+            <i class="fa-solid fa-user-group" [ngClass]="{'mobile-icon': mobileActive, 'desktop-icon': !mobileActive}"></i>
+            <h3 class="font-semibold leading-normal"
+                [ngClass]="{'mobile-header': mobileActive, 'desktop-header': !mobileActive}"
+                style="color: #252f7e">
+              Aile ve Çift Terapisi
+            </h3>
+          </div>
+          <p [ngClass]="{'mobile-text': mobileActive, 'desktop-text': !mobileActive}"
+             style=" hyphens: auto; margin-bottom: 5rem;" >
+            {{ciftContents}}
+          </p>
+
+          <div #online [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
+            <i class="fa-solid fa-laptop" [ngClass]="{'mobile-icon': mobileActive, 'desktop-icon': !mobileActive}"></i>
+            <h3 class="font-semibold leading-normal"
+                [ngClass]="{'mobile-header': mobileActive, 'desktop-header': !mobileActive}"
+                style="color: #252f7e">
+              Online Terapi
+            </h3>
+          </div>
+          <p [ngClass]="{'mobile-text': mobileActive, 'desktop-text': !mobileActive}"
+             style=" hyphens: auto; margin-bottom: 5rem" >
+            {{onlineContents}}
+          </p>
+
+
+          <!--<div class="flex items-center justify-center" #online>
+            <i class="fa-solid fa-laptop text-4xl mr-3"></i>
+            <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+              Online Terapi
+            </h3>
+          </div>
+          <p class="text-lg mt-4 mx-16 text-justify" style=" hyphens: auto; margin-bottom: 5rem; text-indent: 3rem" >{{onlineContents}}</p>-->
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

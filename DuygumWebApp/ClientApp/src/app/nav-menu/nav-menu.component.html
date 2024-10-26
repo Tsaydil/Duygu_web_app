@@ -56,7 +56,10 @@
       <a class="mobile-nav" [routerLink]="['/about']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-user-alt mobile-nav"></i> Hakkımda</a>
     </li>
     <li class="mobile-nav">
-      <a class="mobile-nav" href="#"><i class="fas fa-comment-dots mobile-nav" (click)="closeMobileNav()"></i> Yazılarım</a>
+      <a class="mobile-nav" [routerLink]="['/study-area']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-clipboard mobile-nav" (click)="closeMobileNav()"></i> Çalışma Alanlarım</a>
+    </li>
+    <li class="mobile-nav">
+      <a class="mobile-nav" [routerLink]="['/posts']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-comment-dots mobile-nav" (click)="closeMobileNav()"></i> Yazılarım</a>
     </li>
     <li class="mobile-nav">
       <a class="mobile-nav" [routerLink]="['']" fragment="contact" routerLinkActive="active-link" (click)="closeMobileNav()" ><i class="fas fa-at mobile-nav"></i> İLETİŞİM</a>
@@ -149,7 +152,7 @@
     <img #DuyguAydilLogo src="./assets/images/SaydamZemindeOrijinal.png" alt="DuyguAydilLogo" class="h-12">
   </div>
 
-  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between " >
+  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between" >
 
     <!--<div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
       <a [routerLink]="['/']" class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
@@ -194,7 +197,15 @@
         </li>
 
         <li class="flex items-center">
-          <app-navbar-dropdown></app-navbar-dropdown>
+<!--          <app-navbar-dropdown></app-navbar-dropdown>-->
+          <a
+            class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            style="color: #252f7e"
+            [routerLink]="['/study-area']" routerLinkActive="active-link"
+          >
+            <i class="fa-solid fa-clipboard text-lg leading-lg mr-2 "></i>
+            Çalışma Alanlarım
+          </a>
         </li>
 
 

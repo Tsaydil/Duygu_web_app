@@ -1,0 +1,103 @@
+@media only screen and (max-width: 768px) {
+  .post_page_content_div {
+    margin-top: 4rem;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .post_page_content_div {
+    margin-top: 8rem;
+  }
+}
+
+.custom-disc-color li::marker {
+  color: #252f7e; /* Change this to your desired color */
+}
+
+.mobile-section {
+  padding-bottom: 5rem;
+}
+
+.desktop-section {
+  padding-bottom: 20rem;
+}
+
+.mobile-div {
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.desktop-div {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mobile-img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.desktop-img {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mobile-article-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.desktop-article-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.mobile-header {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #252f7e;
+}
+
+.desktop-header {
+  font-size: 3rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #252f7e;
+}
+
+.mobile-p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  font-weight: 300;
+  text-align: justify;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  hyphens: auto;
+}
+
+.desktop-p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  font-weight: 300;
+  text-align: justify;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}

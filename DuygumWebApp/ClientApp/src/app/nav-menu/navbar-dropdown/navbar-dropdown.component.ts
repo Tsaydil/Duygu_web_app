@@ -49,13 +49,13 @@ export class NavbarDropdownComponent implements OnInit {
   }
 
   toggleDropdown(event: { preventDefault: () => void; }) {
-    if (this.dropdownPopoverShow) {
-      this.dropdownPopoverShow = false;
-    } else {
-      this.dropdownPopoverShow = true;
-      //this.createPopper();
-    }
+    //this.dropdownPopoverShow = !this.dropdownPopoverShow;
   }
+
+  closeDropdown() {
+    this.dropdownPopoverShow = false;
+  }
+
   createPopper() {
     createPopper(
       this.btnDropdownRef?.nativeElement,

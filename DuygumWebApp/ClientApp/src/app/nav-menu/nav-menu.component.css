@@ -121,7 +121,7 @@ ul li:last-child.mobile-nav {
 ul li a.mobile-nav {
   text-decoration: none;
   color: #ccc;
-  font-size: 3em;
+  font-size: 2rem;
   font-weight: 900;
   text-transform: uppercase;
   transition: 0.15s ease-in-out;
