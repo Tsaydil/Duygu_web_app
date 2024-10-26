@@ -31,3 +31,37 @@
 .text-cycle.fade-out {
   opacity: 0;
 }
+
+.homeVideo{
+  width: 100vw;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.homeMain.mobile-active {
+  overflow-x: hidden;
+}
+
+.mobile-div{
+  width: 100%;
+}
+
+.desktop-div{
+  width: 25%;
+}
+
+.mobile-blockquote{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.desktop-blockquote{
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+
+.fancy-text {
+  font-family: 'Cursive', 'Comic Sans MS', 'Brush Script MT', sans-serif;
+}
+

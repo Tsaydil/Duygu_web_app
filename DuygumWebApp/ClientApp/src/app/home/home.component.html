@@ -1,44 +1,83 @@
-<main>
+<main class="homeMain" [ngClass]="{'mobile-active': mobileActive}">
 
-  <div style="width: 100%;" [style.padding-top]="paddingTop" class="relative flex content-center items-center justify-center">
+  <div style="width: 100%;" [style.padding-top]="this.paddingTop" class="relative flex content-center items-center justify-center">
 
     <div >
-      <video #homeVideo autoplay loop muted width="100%" height="auto">   <!-- class="position-relative w-full bottom-0 h-1/2" autoplay muted loop id="my_video2">-->
+      <!--<video class="homeVideo" [ngClass]="{'mobile-active': mobileActive}" #homeVideo autoplay loop muted width="100%" height="auto">   &lt;!&ndash; class="position-relative w-full bottom-0 h-1/2" autoplay muted loop id="my_video2">&ndash;&gt;
         <source src="assets/videos/DuyguKoyuncuAydil.mp4" type="video/mp4">
-      </video>
+      </video>-->
+      <img class="homeVideo" [ngClass]="{'mobile-active': mobileActive}" src="assets/videos/DuyguKoyuncuAydil2.gif" #homeVideo alt="Duygu Koyuncu Aydil">
     </div>
 
   </div>
 
-  <section class="pb-20 bg-blueGray-200 -mt-24">
-    <div class="container mx-auto px-4">
+  <section class=" bg-blueGray-200">
+    <div class="">
 
-      <div class="flex flex-wrap">
-      </div>
 
-      <div class="flex flex-wrap items-center mt-32">
 
-        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
-
-          <h3 class="text-5xl mb-2 font-semibold leading-normal">
-            Hakkımda
-          </h3>
-          <p class="text-lg font-light text-justify leading-relaxed mt-4 mb-4 text-blueGray-600">{{aboutContent}}</p>
-          <a [routerLink]="['/about']" class="font-bold text-blueGray-700 mt-8">
-            Devamı...
-          </a>
-        </div>
-
-        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
-          <div
-            class="relative flex flex-col min-w-0 break-words w-full mb-6"
-          >
+      <div *ngIf="!mobileActive" class="flex flex-wrap items-center">
+        <div class="w-100 mr-auto ml-auto flex">
+          <div class="w-50 relative flex flex-col items-center" style="width: 60%; background: #cdcedd">
             <img
               alt="..."
               src="assets/images/IMG_3879.png"
-              class="w-full align-middle rounded-lg h-full"
+              class="align-middle rounded-lg h-full mt-8"
+              style="width: 60%"
             />
           </div>
+          <div class="w-50 flex flex-col justify-center text-center items-center">
+
+            <!--<h2 class="text-5xl mb-6 font-semibold" style="font-family: Cursive; color: midnightblue">Hoşgeldiniz</h2>-->
+
+            <img
+              alt="..."
+              src="assets/images/hosgeldiniz2.png"
+              class="align-middle rounded-lg h-full"
+              style="width: 50%; height: 22%; margin-bottom: 8%"
+            />
+
+            <p class="text-lg font-light text-justify leading-relaxed mb-6 mx-16 text-blueGray-600" style="text-indent: 2em">{{aboutContent}}</p>
+            <a [routerLink]="['/about']" class="font-bold mb-6" style="color: #252f7e">
+              Devamı...
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="mobileActive" class="flex flex-wrap items-center">
+        <div *ngIf="mobileActive" class="w-100 mr-auto ml-auto">
+          <div class="relative flex flex-col items-center mt-2 mb-8" style="width: 100%">
+            <!--<h2 class="text-5xl mt-6 mb-6 font-semibold" style="font-family: Cursive; color: midnightblue">Hoşgeldiniz</h2>-->
+            <img
+              alt="..."
+              src="assets/images/hosgeldiniz2.png"
+              class="align-middle rounded-lg h-full mb-3"
+              style="width: 60%"
+            />
+            <div class="relative flex flex-col items-center p-4" style="background: #cdcedd">
+              <img
+                alt="..."
+                src="assets/images/IMG_3879.png"
+                class="align-middle rounded-lg h-full "
+                style="width: 50%;"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-center text-center items-center">
+            <p
+              class="text-lg font-light text-justify leading-relaxed mb-2 mx-5 text-blueGray-600"
+              style="text-indent: 1em">
+              {{aboutContent}}
+            </p>
+            <a [routerLink]="['/about']" class="font-bold mb-8" style="color: #252f7e">Devamı...</a>
+          </div>
+        </div>
+
+        <div #headerDiv class="w-full px-4 mx-auto text-center mt-8 justify-center">
+
         </div>
 
       </div>
@@ -49,82 +88,103 @@
 
   <section class="relative py-20">
 
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-2 py-8">
 
       <div class="flex flex-wrap">
 
-        <div class="w-25 px-3 text-center">
+        <div class="px-3 text-center" [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}" >
           <div
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
+                style="background-color: #c4b092"
               >
-                <i class="fas fa-award"></i>
+                <i class="fa-solid fa-person" style="font-size: xx-large"></i>
               </div>
               <h6 class="text-xl font-semibold">Bireysel Psikoterapi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" >{{yetiskinContents}}</p>
+              <a [routerLink]="['study-area']" fragment="yetiskin" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="text-lg font-light leading-relaxed text-justify mt-4 mb-4 text-blueGray-600" style="text-indent: 3rem">{{yetiskinContents}}</p>-->
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
 
-        <div class="w-25 px-3 text-center">
+        <div class="px-3 text-center" [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
           <div
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-700"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
+                style="background-color: #252f7e"
               >
-                <i class="fas fa-yahoo"></i>
+                <i class="fa-solid fa-child-reaching" style="font-size: x-large"></i>
               </div>
               <h6 class="text-xl font-semibold">Ergen Terapisi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" style=" hyphens: auto" >{{ergenContents}}</p>
+              <a [routerLink]="['study-area']" fragment="ergen" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
 
-        <div class="w-25 px-3 text-center">
+        <div class="px-3 text-center" [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
           <div
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-600"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
+                style="background-color: #c4b092"
               >
-                <i class="fa fa-pencil"></i>
+                <i class="fa-solid fa-user-group"></i>
               </div>
               <h6 class="text-xl font-semibold">Aile ve Çift Terapisi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" style=" hyphens: auto" >{{ciftContents}}</p>
+              <a [routerLink]="['study-area']" fragment="cift" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
 
-        <div class="w-25 px-3 text-center">
+        <div class="px-3 text-center" [ngClass]="{'mobile-div': mobileActive, 'desktop-div': !mobileActive}">
           <div
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400"
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-4 shadow-lg rounded-full"
+                style="background-color: #252f7e"
               >
-                <i class="fas fa-award"></i>
+                <i class="fa-solid fa-laptop" style="font-size:large"></i>
               </div>
-              <h6 class="text-xl font-semibold">Online terapi</h6>
-              <p class="mt-2 mb-4 text-blueGray-500">
+              <h6 class="text-xl font-semibold">Online Terapi</h6>
+              <p class="mt-2 mb-2 text-justify text-blueGray-500" >{{onlineContents}}</p>
+              <a [routerLink]="['study-area']" fragment="online" routerLinkActive="active-link" class="font-bold" style="color: #252f7e">
+                devamı...
+              </a>
+              <!--<p class="mt-2 mb-4 text-blueGray-500">
                 Divide details about your product or agency work into parts. A
                 paragraph describing a feature will be enough.
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
@@ -143,7 +203,7 @@
         <svg class="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4 block m-auto content-center" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
           <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
         </svg>
-        <blockquote style="padding-left: 15rem; padding-right: 15rem">
+        <blockquote [ngClass]="{'mobile-blockquote': mobileActive, 'desktop-blockquote': !mobileActive}" >
           <div class="text-cycle-container">
             <p #textElement class="text-cycle text-2xl italic font-medium text-gray-900 dark:text-white"></p>
           </div>
@@ -156,91 +216,89 @@
       </figure>
 
     </div>
-
   </section>
 
 
-  <section class="pb-20 relative block bg-blueGray-800">
+  <section class="pb-4 relative block bg-blueGray-800">
 
-    <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+    <div class="container mx-auto px-4 lg:pt-24 lg:pb-64 py-8" #contact>
       <div class="flex flex-wrap text-center justify-center">
         <div class="w-full lg:w-6/12 px-4">
-          <h2 class="text-4xl font-semibold text-white">Build something</h2>
-          <p class="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
-          </p>
+          <h2 class="text-4xl font-semibold text-white">Bize Ulaşın</h2>
         </div>
       </div>
-      <div class="flex flex-wrap mt-12 justify-center">
+      <div class="flex flex-wrap mt-12 justify-center mb-12">
         <div class="w-full lg:w-3/12 px-4 text-center">
+
           <div
             class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
           >
-            <i class="fas fa-medal text-xl"></i>
+            <i class="fa-solid fa-phone text-xl"></i>
           </div>
-          <h6 class="text-xl mt-5 font-semibold text-white">
-            Excelent Services
+          <h6 class="text-xl mt-4 font-semibold text-white">
+            Telefon Numarası
           </h6>
-          <p class="mt-2 mb-4 text-blueGray-400">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <p class="mt-2 mb-4 text-blueGray-400" style="color: #c4b092">
+            +90 123 456 78 90
           </p>
         </div>
+
         <div class="w-full lg:w-3/12 px-4 text-center">
           <div
             class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
           >
-            <i class="fas fa-poll text-xl"></i>
+            <i class="fa-solid fa-location-dot text-xl"></i>
           </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">
-            Grow your market
+          <h5 class="text-xl mt-4 font-semibold text-white">
+            Adres
           </h5>
-          <p class="mt-2 mb-4 text-blueGray-400">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <p class="mt-2 text-blueGray-400" style="color: #c4b092">
+            Musalla Bağları Mahallesi, Gürsesler Sokak, Esmira Plaza Daire:4 Selçuklu/KONYA
           </p>
         </div>
+
         <div class="w-full lg:w-3/12 px-4 text-center">
           <div
             class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
           >
-            <i class="fas fa-lightbulb text-xl"></i>
+            <i class="fa-brands fa-instagram text-2xl"></i>
           </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">Launch time</h5>
-          <p class="mt-2 mb-4 text-blueGray-400">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <h5 class="text-xl mt-4 font-semibold text-white">
+            Instagram
+          </h5>
+          <p class="mt-2 text-blueGray-400">
+            <a href="https://www.instagram.com/psk.dan.duygukoyuncu" target="_blank" style="color: #833AB4">psk.dan.duygukoyuncu</a>
           </p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="relative block py-24 lg:pt-0 bg-blueGray-800" id="contact" >
-    <div class="container mx-auto px-4">
+  <section class="relative block py-24 lg:pt-0 bg-blueGray-800">
+    <div class="container mx-auto px-4 pt-6">
       <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
         <div class="w-full lg:w-6/12 px-4">
           <div
             class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200"
           >
             <div class="flex-auto p-5 lg:p-10">
-              <h4 class="text-2xl font-semibold">Bize Ulaşın</h4>
+              <!--<h4 class="text-2xl font-semibold">Bize Ulaşın</h4>-->
               <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                Complete this form and we will get back to you in 24 hours.
+                Aşağıdaki iletişim formunu doldurarak bize ulaşabilirsiniz. En kısa süre içerisinde size dönüş yapacağız.
               </p>
               <div class="relative w-full mb-3 mt-8">
                 <label
                   class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                   htmlFor="full-name"
                 >
-                  Full Name
+                  Ad Soyad
                 </label>
                 <input
                   type="text"
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="Full Name"
+                  placeholder="Adınız ve Soyadınız"
+                  [(ngModel)]="fullName"
                 />
               </div>
 
@@ -249,12 +307,13 @@
                   class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                   htmlFor="email"
                 >
-                  Email
+                  Email Adresi
                 </label>
                 <input
                   type="email"
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="Email"
+                  placeholder="Email adresiniz"
+                  [(ngModel)]="email"
                 />
               </div>
 
@@ -263,21 +322,23 @@
                   class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                   htmlFor="message"
                 >
-                  Message
+                  Mesaj
                 </label>
                 <textarea
                   rows="4"
                   cols="80"
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                  placeholder="Type a message..."
+                  placeholder="Mesajınızı yazınız..."
+                  [(ngModel)]="message"
                 ></textarea>
               </div>
               <div class="text-center mt-6">
                 <button
                   class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   type="button"
+                  (click)="sendEmail()"
                 >
-                  Send Message
+                  Mesaj Gönder
                 </button>
               </div>
             </div>

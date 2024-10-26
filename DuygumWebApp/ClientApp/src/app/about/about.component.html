@@ -1,53 +1,94 @@
 <div class="bg-blueGray-200">
   <section class="pb-20 ">
     <div class="container mx-auto px-4">
-      <div class="flex flex-wrap">
 
+      <div class="flex flex-wrap items-center">
 
+        <div class="w-full px-6 mr-auto ml-auto about_content_div">
 
+          <div *ngIf="!mobileActive" class="w-100 mr-auto ml-auto flex" style="width: 100%">
+            <div class="relative flex flex-col items-center" style="width: 40%">
+              <img
+                alt="..."
+                src="assets/images/image_small.png"
+                class="rounded-pill h-full"
+                style="width: 60%; height: 90%; object-fit: cover; object-position: top; background: #cdcedd; border: 3px solid #cdcedd;"
+              />
+            </div>
+            <div class="w-50 flex flex-col justify-center text-center items-start">
+              <img
+                src="./assets/images/SaydamZemindeOrijinal.png"
+                alt="DuyguAydilLogo"
+              >
+            </div>
+          </div>
 
-      </div>
+          <div *ngIf="mobileActive" class="mr-auto ml-auto pt-3 pb-4">
+            <div class="relative flex flex-col items-center pb-4">
+              <img
+                alt="..."
+                src="assets/images/image_small.png"
+                class="rounded-pill"
+                style="width: 50%; object-fit: cover; object-position: top; background: #cdcedd; border: 3px solid #cdcedd;"
+              />
+            </div>
+            <div class="flex flex-col justify-center text-center items-start pb-2">
+              <img
+                src="./assets/images/SaydamZemindeOrijinal.png"
+                alt="DuyguAydilLogo"
+                >
+            </div>
+          </div>
 
-      <div class="flex flex-wrap items-center mt-32">
-
-        <div class="w-full  px-4 mr-auto ml-auto">
-
-          <h1 class="text-6xl mb-2 font-semibold leading-normal text-center">
-            Hakkımda
-          </h1>
-
+          <div class="flex items-center">
+            <i class="fa-solid fa-circle-info text-2xl mr-3 mb-2"></i>
+            <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+              Hakkımda
+            </h3>
+          </div>
           <p *ngFor="let mainContent of mainContents" class="text-lg font-light leading-relaxed text-justify mt-4 mb-4 text-blueGray-600" style="text-indent: 3rem">{{mainContent}}</p>
           <br>
 
-          <h2 class="font-bold text-center">ALDIĞI EĞİTİM VE SERTİFİKALARDAN BAZILARI</h2>
-          <ul>
-            <li *ngFor="let trainingContent of trainingContents" class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{trainingContent}}
-            </li>
-          </ul>
-<!--          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{trainingContents}}</p>-->
+          <div class="flex items-center">
+            <i class="fa-solid fa-school text-2xl mr-3 mb-2"></i>
+            <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+              Eğitim Bilgileri
+            </h3>
+          </div>
+          <li *ngFor="let education of educationContents" class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{education}}
+          </li>
+
           <br>
 
-          <h2 class="font-bold text-center">AKADEMİK ÇALIŞMALAR</h2>
+          <div class="flex items-center">
+            <i class="fa-solid fa-scroll text-2xl mr-3 mb-2"></i>
+            <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+              Sertifikalar
+            </h3>
+          </div>
+          <li *ngFor="let trainingContent of trainingContents"
+              class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{trainingContent}}
+          </li>
           <br>
-          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">{{researchContent}}</p>
 
-          <!--<p
-            class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600"
-          >
-            Don't let your uses guess by attaching tooltips and popoves to any
-            element. Just make sure you enable them first via JavaScript.
-          </p>
-          <p
-            class="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600"
-          >
-            The kit comes with three pre-built pages to help you get started
-            faster. You can change the text and images and you're good to go.
-            Just make sure you enable them first via JavaScript.
-          </p>-->
+          <div class="flex items-center">
+            <i class="fa-solid fa-pen-fancy text-2xl mr-3 mb-2"></i>
+            <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: #252f7e">
+              Akademik Çalışmalar
+            </h3>
+          </div>
+          <br>
+          <li *ngFor="let research of researchContent; let i = index"
+              class="text-lg font-light leading-relaxed mb-2 text-blueGray-600">
+            <ng-container *ngIf="i == 0">
+              <a href="https://journals.sagepub.com/doi/10.1177/13591045221148075" target="_blank" class="text-blue-500">{{research}}</a>
+            </ng-container>
+            <ng-container *ngIf="i != 0">
+              {{research}}
+            </ng-container>
+          </li>
 
         </div>
-
-
 
       </div>
 

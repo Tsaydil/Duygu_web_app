@@ -1,0 +1,36 @@
+<div class="bg-blueGray-200">
+  <section [ngClass]="{'desktop-section': !mobileActive, 'mobile-section': mobileActive}">
+    <div class="container mx-auto px-4">
+
+      <div class="flex flex-wrap items-center">
+
+        <div class="post_page_content_div" [ngClass]="{'desktop-div': !mobileActive, 'mobile-div': mobileActive}">
+
+          <div class=" mr-auto ml-auto flex">
+            <div class="relative flex flex-col items-center">
+              <img
+                alt="..."
+                src="assets/images/posts/image_{{(this.no)}}.png"
+                class="rounded h-full"
+                [ngClass]="{'desktop-img': !mobileActive, 'mobile-img': mobileActive}"
+              />
+            </div>
+          </div>
+
+          <div [ngClass]="{'desktop-article-div': !mobileActive, 'mobile-article-div': mobileActive}">
+            <h3 [ngClass]="{'desktop-header': !mobileActive, 'mobile-header': mobileActive}">
+              {{headers[(this.no)-1]}}
+            </h3>
+          </div>
+          <p [ngClass]="{'desktop-p': !mobileActive, 'mobile-p': mobileActive}"
+             [innerText]="contents">
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

@@ -44,10 +44,112 @@
 </header>-->
 
 
-<nav class="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 navbar-expand-lg bg-blueGray-200 shadow">
 
-  <div class="fixed" style="margin-left: 80px">
-    <img src="./assets/images/SaydamZemindeOrijinal.png" alt="DuyguAydilLogo" class="w-20 h-12">
+
+<nav #full_screen_nav *ngIf="mobileActive" class="full_screen_nav">
+  <div #backdrop class="backdrop"></div>
+  <ul class="mobile-nav">
+    <li class="mobile-nav">
+      <a class="mobile-nav" [routerLink]="['']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-home mobile-nav"></i> Ana Sayfa</a>
+    </li>
+    <li class="mobile-nav">
+      <a class="mobile-nav" [routerLink]="['/about']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-user-alt mobile-nav"></i> Hakkımda</a>
+    </li>
+    <li class="mobile-nav">
+      <a class="mobile-nav" [routerLink]="['/study-area']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-clipboard mobile-nav" (click)="closeMobileNav()"></i> Çalışma Alanlarım</a>
+    </li>
+    <li class="mobile-nav">
+      <a class="mobile-nav" [routerLink]="['/posts']" routerLinkActive="active-link" (click)="closeMobileNav()"><i class="fas fa-comment-dots mobile-nav" (click)="closeMobileNav()"></i> Yazılarım</a>
+    </li>
+    <li class="mobile-nav">
+      <a class="mobile-nav" [routerLink]="['']" fragment="contact" routerLinkActive="active-link" (click)="closeMobileNav()" ><i class="fas fa-at mobile-nav"></i> İLETİŞİM</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="content absolute z-50 w-full flex-wrap px-2 py-2" *ngIf="mobileActive">
+  <button #trigger class="trigger"><i class="fas fa-bars"></i></button>
+</div>
+
+
+
+<!--<nav *ngIf="mobileActive"
+     class="nav-menu absolute z-50 w-full flex-wrap items-center justify-between px-2"
+     style="top: 0.5rem; "
+>
+
+
+  &lt;!&ndash; class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" &ndash;&gt;
+  <button
+    class="bg-blueGray-700 border-solid text-white active:bg-red-600 font-bold uppercase
+  text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none
+  focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+    type="button"
+    (click)="setNavbarOpen()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div
+    class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none block rounded shadow-lg"
+    [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }">
+
+    <ul class="flex flex-col lg:flex-row list-none">
+      <li class="flex items-center">
+        <a
+          class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 pt-2 flex items-center text-xs uppercase font-bold"
+          [routerLink]="['']" routerLinkActive="active-link" (click)="navbarOpen = false"
+        >
+          <i class="lg:text-blueGray-200 far fa-file-alt text-lg leading-lg mr-2 "></i>
+          Ana Sayfa
+        </a>
+      </li>
+      <li class="flex items-center">
+        <a
+          class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 pt-2 flex items-center text-xs uppercase font-bold"
+          [routerLink]="['/about']" routerLinkActive="active-link" (click)="navbarOpen = false"
+        >
+          <i class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "></i>
+          Hakkımda
+        </a>
+      </li>
+
+      <li class="flex items-center pt-2">
+        <app-navbar-dropdown></app-navbar-dropdown>
+      </li>
+
+
+
+      <li class="flex items-center">
+        <a
+          class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 pt-2 flex items-center text-xs uppercase font-bold"
+          (click)="navbarOpen = false"
+        >
+          <i class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "></i>
+          Yazılarım
+        </a>
+      </li>
+      <li class="flex items-center">
+        <a
+          class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-2 flex items-center text-xs uppercase font-bold"
+          href="home/#contact" (click)="navbarOpen = false"
+        >
+          <i class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "></i>
+          İLETİŞİM
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</nav>-->
+
+
+
+<nav *ngIf="!mobileActive" class="nav-menu top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 navbar-expand-lg bg-blueGray-200 shadow-2xl"
+     [ngClass]="{'mobile-active': this.mobileActive}"
+>
+
+  <div class="fixed" style="padding-left: 1%" >
+    <img #DuyguAydilLogo src="./assets/images/SaydamZemindeOrijinal.png" alt="DuyguAydilLogo" class="h-12">
   </div>
 
   <div class="container px-4 mx-auto flex flex-wrap items-center justify-between" >
@@ -65,9 +167,11 @@
       </button>
     </div>-->
 
+
+    <!-- [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }" -->
     <div
-      class="lg:flex flex-grow items-center lg:bg-opacity-0 lg:shadow-none justify-center"
-      [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }"
+      class="lg:flex flex-grow items-center lg:bg-opacity-0 lg:shadow-none justify-center block rounded shadow-2xl"
+
       id="example-navbar-warning">
 
       <ul class="flex flex-col lg:flex-row list-none">
@@ -75,8 +179,9 @@
           <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
             [routerLink]="['']" routerLinkActive="active-link"
+            style="color: #252f7e"
           >
-            <i class="lg:text-blueGray-200 far fa-file-alt text-lg leading-lg mr-2 "></i>
+            <i class="fa-solid fa-house text-lg leading-lg mr-2 "></i>
             Ana Sayfa
           </a>
         </li>
@@ -84,14 +189,23 @@
           <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
             [routerLink]="['/about']" routerLinkActive="active-link"
+            style="color: #252f7e"
           >
-            <i class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "></i>
+            <i class="fa-solid fa-user text-lg leading-lg mr-2 "></i>
             Hakkımda
           </a>
         </li>
 
         <li class="flex items-center">
-          <app-navbar-dropdown></app-navbar-dropdown>
+<!--          <app-navbar-dropdown></app-navbar-dropdown>-->
+          <a
+            class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            style="color: #252f7e"
+            [routerLink]="['/study-area']" routerLinkActive="active-link"
+          >
+            <i class="fa-solid fa-clipboard text-lg leading-lg mr-2 "></i>
+            Çalışma Alanlarım
+          </a>
         </li>
 
 
@@ -99,18 +213,21 @@
         <li class="flex items-center">
           <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-
+            style="color: #252f7e"
+            [routerLink]="['/posts']" routerLinkActive="active-link"
           >
-            <i class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "></i>
+            <i class="fa-solid fa-pen-fancy text-lg leading-lg mr-2 "></i>
             Yazılarım
           </a>
         </li>
         <li class="flex items-center">
           <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blue-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="home/#contact"
+            [routerLink]="['']" routerLinkActive="active-link"
+            fragment="contact"
+            style="color: #252f7e"
           >
-            <i class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "></i>
+            <i class="fa-solid fa-address-card text-lg leading-lg mr-2 "></i>
             İLETİŞİM
           </a>
         </li>
