@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+
+# Deploy to Heroku
+
+- Ran npm init -y to create package.json file in the root directory. This is required for Heroku to recognize the app as a Node.js app.
+- For buildpacks, added nodejs and dotnet buildpacks to the app. First, nodejs and then dotnet.
+
