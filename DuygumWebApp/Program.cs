@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+/*var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -24,4 +24,21 @@ app.MapControllerRoute(
 
 app.MapFallbackToFile("index.html");
 
-app.Run();
+app.Run();*/
+
+using DuygumWebApp;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+
+namespace AspNetCoreDemoApp
+{
+    public class Program
+    {
+        public static void Main(string[] args) =>
+            CreateWebHostBuilder(args).Build().Run();
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
+    }
+}
