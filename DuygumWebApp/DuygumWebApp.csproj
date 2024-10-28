@@ -5,14 +5,14 @@
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <SpaRoot>ClientApp\</SpaRoot>
-        <SpaProxyServerUrl>https://localhost:44450</SpaProxyServerUrl>
-        <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+        <!--<SpaProxyServerUrl>https://localhost:44450</SpaProxyServerUrl>
+        <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>-->
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="MailKit" Version="4.8.0" />
-        <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.18"/>
+        <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="8.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -39,10 +39,9 @@
 
     <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
         <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-        <!-- Commented for Heroku deploy
         <Exec WorkingDirectory="$(SpaRoot)" Command="npm install"/>
-        <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build &#45;&#45; &#45;&#45;configuration production"/>
-        -->
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --configuration production"/>
+        
 
         <!-- Include the newly-built files in the publish output -->
         <ItemGroup>
