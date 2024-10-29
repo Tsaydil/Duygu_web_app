@@ -13,7 +13,6 @@ import {NavbarDropdownComponent} from "./nav-menu/navbar-dropdown/navbar-dropdow
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import {PostsComponent} from "./posts/posts.component";
-import {PostsComponentOLD} from "./postsOLD/posts.component";
 import {PostPageComponent} from "./post-page/post-page.component";
 import {StudyAreaComponent} from "./study-area/study-area.component";
 
