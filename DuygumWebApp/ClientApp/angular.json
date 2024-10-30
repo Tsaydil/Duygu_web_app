@@ -27,7 +27,8 @@
               "oidc-client"
             ],
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/robots.txt"
             ],
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
