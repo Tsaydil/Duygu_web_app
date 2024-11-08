@@ -5,6 +5,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {HttpClient} from '@angular/common/http';
 import {getBaseUrl} from "../../main";
 import {IContactInfo} from "../Interfaces/ContactInfo";
+import {Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
@@ -58,10 +59,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private cdRef: ChangeDetectorRef,
     private readTextFileService: ReadTextFileService,
     private resp: BreakpointObserver,
-    private http: HttpClient
+    private http: HttpClient,
+    private meta: Meta
   ) {
     this.paddingTop = '0px';
-
+    this.meta.addTags([
+      {name: 'description', content: 'Uzman psikolojik danışman Duygu Koyuncu Aydil, yetişkin, ergen, çift ve online terapi alanlarında Konya\'da hizmet vermektedir.'},
+      {name: 'keywords', content: 'Konya psikolog, Konya psikolojik danışman, yetişkin terapisi, ergen terapisi, çift terapisi, online terapi'},
+      {name: 'author', content: 'Duygu Koyuncu Aydil'}
+      ]);
   }
 
   cycleTexts() {
